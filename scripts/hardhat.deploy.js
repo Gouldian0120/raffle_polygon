@@ -142,7 +142,7 @@ async function main() {
     deployer.address,
   ];
 
-  const raffle = await deploy("RaffleWithVRF", {
+  const raffle = await deploy("Raffle", {
     from: deployer.address,
     args: raffle_args,
     log: true,
@@ -151,16 +151,10 @@ async function main() {
   console.log("raffle is deployed 👍", await raffle.address);
   
   if (development_chain.includes(network.name)) {
-    // const usdt_mock_contract = await ethers.getContract("USDTMock");
     const vrf_mock_contract = await ethers.getContract("VRFCoordinatorV2Mock");
     await vrf_mock_contract.addConsumer(subscriptionID, raffle.address); // add because automation chainlink update
     console.log("raffle contract is added to the consumer of the vrfcoordiner");
     
-    // await usdt_mock_contract.approve(lottery.address, approveAmount);
-    
-    // await usdt_mock_contract.connect(player).approve(lottery.address, approveAmount);
-    // await usdt_mock_contract.connect(collector).approve(lottery.address, approveAmount);
-    // await usdt_mock_contract.transfer(player.address, ethers.utils.parseUnits("10000", 6));
   }
 }
 

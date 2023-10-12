@@ -23,7 +23,7 @@ describe("Raffle", function () {
       beforeEach(async () => {
         // await deployments.fixture(); // deploy all contracts
         deployer = (await getNamedAccounts()).deployer;
-        raffle = await ethers.getContract("RaffleWithVRF", deployer);
+        raffle = await ethers.getContract("Raffle", deployer);
         vrf_mock_contract = await ethers.getContract("VRFCoordinatorV2Mock", deployer);
         usdt_mock_contract = await ethers.getContract("USDTMock", deployer);
         erc20_mock_contract = await ethers.getContract("ERC20Mock", deployer);

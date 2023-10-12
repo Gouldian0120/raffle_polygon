@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "./interfaces/IRaffleVRF.sol";
+import "./interfaces/IRaffle.sol";
 import "./interfaces/generic/IERC20.sol";
 import "./libraries/Arrays.sol";
 import "./libraries/Ownable.sol";
@@ -10,7 +10,7 @@ import "./libraries/ReentrancyGuard.sol";
 import { VRFConsumerBaseV2 } from "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import { VRFCoordinatorV2Interface } from "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 
-contract RaffleWithVRF is IRaffleVRF, VRFConsumerBaseV2, Ownable, ReentrancyGuard {
+contract Raffle is IRaffle, VRFConsumerBaseV2, Ownable, ReentrancyGuard {
 	using Arrays for uint256[];
 
     IERC20 public USDTInterface;

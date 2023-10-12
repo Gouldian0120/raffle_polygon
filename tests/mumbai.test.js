@@ -30,7 +30,7 @@ describe("Raffle", function () {
     // await deployments.fixture(); // deploy all contracts
     accounts = await getNamedAccounts();
 
-    raffle = await ethers.getContractAt("RaffleWithVRF", raffleAddress);
+    raffle = await ethers.getContractAt("Raffle", raffleAddress);
     usdt_mock_contract = await ethers.getContractAt("USDTMock", usdtAddress);
     erc20_mock_contract = await ethers.getContractAt("ERC20Mock", erc20Address);
     erc721_mock_contract = await ethers.getContractAt("ERC721Mock", erc721Address);

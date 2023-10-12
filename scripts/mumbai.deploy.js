@@ -41,12 +41,11 @@ async function main() {
 
   vrfCoordinatorV2address = networkConfig[chainId].vrfCoordinator;
   subscriptionID = networkConfig[chainId].subscriptionID;
-  // usdtAddress = networkConfig[chainId].usdt_address;
+  usdtAddress = networkConfig[chainId].usdt_address;
 
   // deploy mock USDT
   const usdt_args = ['tUSDT', 'tUSDT', 6];
-  const usdt = await deploy(
-    "USDTMock", 
+  const usdt = await deploy("USDTMock", 
     {
         from: deployer,
         args: usdt_args,
@@ -55,33 +54,29 @@ async function main() {
   );
   console.log('USDT is deployed 👍', usdt.address);
   await verify(usdt, usdt_args);
+  
+  usdtAddress = usdt.address;
 
   // deploy mock ERC721
-  const erc721 = await deploy(
-    "ERC721Mock", 
+  const erc721 = await deploy("ERC721Mock", 
     {
         from: deployer,
         args: [],
         log: true,
     }
   );
-
   console.log('ERC721 is deployed 👍 ', erc721.address);
   await verify(erc721, []);
 
   // deploy mock ERC20
-  const erc20_args = [
-    'MockErc20', 'MockErc20', 18
-  ]
-  const erc20 = await deploy(
-      "ERC20Mock", 
+  const erc20_args = ['MockErc20', 'MockErc20', 18]
+  const erc20 = await deploy("ERC20Mock", 
       {
           from: deployer,
           args: erc20_args,
           log: true,
       }
   );
-
   console.log('ERC20 is deployed 👍 ', erc20.address);
   await verify(erc20, erc20_args);
 
@@ -90,12 +85,11 @@ async function main() {
     gaslane,
     subscriptionID,
     vrfCoordinatorV2address,
-    usdt.address,
+    usdtAddress,
     deployer
   ];
 
-  const raffle = await deploy(
-      "RaffleWithVRF", 
+  const raffle = await deploy("Raffle", 
       {
           from: deployer,
           args: raffle_args,
@@ -103,7 +97,7 @@ async function main() {
       }
   );
 
-  console.log('RaffleWithVRF is deployed 👍 ', raffle.address);
+  console.log('Raffle is deployed 👍 ', raffle.address);
   await verify(raffle, raffle_args);
 }
 

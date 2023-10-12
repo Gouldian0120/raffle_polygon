@@ -22,7 +22,7 @@ npx hardhat run scripts/raffle.vrf.deploy.js --network polygonMumbai
 
 ```
 
-Testing
+Test:
 
 ```
 npx hardhat test tests/polygon.test.js --network polygonMumbai
