@@ -373,6 +373,10 @@ contract Raffle is IRaffle, VRFConsumerBaseV2, Ownable, ReentrancyGuard {
       return latestRequestId;
     }
 
+    function getSelectWinnersCurrentPosition(uint256 raffleId) external view returns (uint256 currentPosition) {
+        currentPosition = raffles[raffleId].selectWinnersStartPosition;
+    }
+
     function getWinnersCount(uint256 raffleId) external view returns (uint256 winnersCount) {
         require(raffleId > 0 && raffleId <= rafflesCount, "Invalid raffle ID");
 
