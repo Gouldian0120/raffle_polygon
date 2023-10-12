@@ -1,0 +1,9 @@
+.env
+
+/artifacts
+/cache
+/deployments
+
+/node_modules
+
+gas-report.txt
