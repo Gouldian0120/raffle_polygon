@@ -102,28 +102,12 @@ module.exports = {
       chainId: 80001,
       accounts: [PRIVATE_KEY, PRIVATE_KEY2, PRIVATE_KEY3, PRIVATE_KEY4],
       timeout: 1000000
-    },
-    chaos: {
-      accounts: [PRIVATE_KEY, PRIVATE_KEY2, PRIVATE_KEY3, PRIVATE_KEY4],
-      chainId: parseInt(process.env.SKALE_CHAIN_ID),
-      url: process.env.SKALE_ENDPOINT
     }
   },
   etherscan: {
     apiKey: {
       polygonMumbai: POLYGONSCAN_API_KEY,
-      chaos: ETHERSCAN_API_KEY,
     },
-    customChains: [
-      {
-        network: "chaos",
-        chainId: parseInt(process.env.SKALE_CHAIN_ID),
-        urls: {
-          apiURL: process.env.SKALE_API_URL,
-          browserURL: process.env.SKALE_BLOCKEXPLORER_URL
-        }
-      }
-    ],
   },
   gasReporter: {
     currency: "USD",
