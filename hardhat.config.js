@@ -89,16 +89,16 @@ module.exports = {
       chainId: 31337,
       timeout: 12000,
       forking: {
-        url: process.env.SKALE_ENDPOINT
+        url: "https://polygon-mainnet.g.alchemy.com/v2/{your_infura_key}"
       }
     },
     hardhat: {
       forking: {
-        url: process.env.SKALE_ENDPOINT
+        url: "https://polygon-mainnet.g.alchemy.com/v2/{your_infura_key}"
       }
     },
     polygonMumbai: {
-      url: "https://polygon-mumbai.g.alchemy.com/v2/oVz9wUAz6CM7Mc0hBaJ3HAtLmmkvQnrC",
+      url: "https://polygon-mumbai.g.alchemy.com/v2/{your_infura_key}",
       chainId: 80001,
       accounts: [PRIVATE_KEY, PRIVATE_KEY2, PRIVATE_KEY3, PRIVATE_KEY4],
       timeout: 1000000
