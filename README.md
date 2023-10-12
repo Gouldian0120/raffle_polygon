@@ -8,7 +8,7 @@ yarn
 
 ```
 
-Edit .env
+Edit .env:
 
 ```
 cp .env.example .env
@@ -28,8 +28,6 @@ Test:
 npx hardhat test tests/polygon.test.js --network polygonMumbai
 
 ```
-
-
 
 # Address of contracts deployed on the polygon mumbai testnet
 
