@@ -15,7 +15,7 @@ npx hardhat run scripts/raffle.vrf.deploy.js --network polygonMumbai
 
 ```
 
-## Testing
+Testing
 
 ```
 npx hardhat test tests/polygon.test.js --network polygonMumbai
@@ -24,14 +24,14 @@ npx hardhat test tests/polygon.test.js --network polygonMumbai
 
 # Address of contracts deployed on the polygon mumbai testnet
 
-## Raffle
+### Raffle
 0x0524374f38B288D82fcd421C10a50Bc166CD0EAB
 
-## USDT
+### USDT
 0x1d8cac74e931f9babc9d41db9a2b9c7ef7d76cbb
 
-## ERC721
+### ERC721
 0x702DEb044f6f81d9dB7f4Ff23Ae4085b5f2c2273
 
-## ERC20
+### ERC20
 0x1d8CAC74E931F9BabC9D41dB9A2B9C7Ef7D76CbB
