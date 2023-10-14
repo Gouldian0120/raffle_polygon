@@ -289,22 +289,6 @@ contract Raffle is IRaffle, VRFConsumerBaseV2, Ownable, ReentrancyGuard {
         if(raffle.selectWinnersStartPosition >= winnersCount) {
             _setRaffleStatus(raffle, raffleId, RaffleStatus.Drawn);
         }
-
-        // for(uint256 i; i < winnersCount; i ++) {
-        //     uint256 winningEntry = randomWord % (currentEntryIndex + 1);
-        //     raffle.winners.push(
-        //         Winner({
-        //             participant: entries[currentEntryIndexArray.findUpperBound(winningEntry)].participant,
-        //             claimed: false,
-        //             prizeIndex: uint8(cumulativeWinnersCountArray.findUpperBound(i + 1)),
-        //             entryIndex: uint40(winningEntry)
-        //         })
-        //     );
-
-        //     randomWord = uint256(keccak256(abi.encodePacked(randomWord)));
-        // }
-
-		// _setRaffleStatus(raffle, raffleId, RaffleStatus.Drawn);
     }
 
     function claimFees(uint256 raffleId) external nonReentrant() {
@@ -345,11 +329,11 @@ contract Raffle is IRaffle, VRFConsumerBaseV2, Ownable, ReentrancyGuard {
         emit CurrenciesStatusUpdated(currencies, isAllowed);
     }
     
-    function setFeeRecipient(address _feeRecipient) external onlyOwner {
+    function setFeeRecipient(address _feeRecipient) external onlyOwner nonReentrant {
         _setFeeRecipient(_feeRecipient);
     }
 
-    function setFeePrice(uint40 _feePrice) external onlyOwner {
+    function setFeePrice(uint40 _feePrice) external onlyOwner nonReentrant {
         _setFeePrice(_feePrice);
     }
 
